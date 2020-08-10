@@ -15,7 +15,7 @@ public class Main {
             // Connecting to the DB
             Connection connection = DriverManager.getConnection(dbURLString, mProperties);
 
-            // Setting auto commmit to true so each commit is sent immediately
+            // Setting auto commit to true so each commit is sent immediately
             connection.setAutoCommit(true);
 
             // Checking to see if the database has been connected to
