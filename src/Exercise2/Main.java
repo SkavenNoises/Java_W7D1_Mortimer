@@ -36,7 +36,6 @@ public class Main {
                 try { // Catching any invalid menu selections
                     String scannerSelection = scanner.next();
                     if (Integer.parseInt(scannerSelection) <= 2 && Integer.parseInt(scannerSelection) >= 0) {
-                        System.out.println(scannerSelection);
                         // Switching to different behaviour depending on user selection
                         switch (Integer.parseInt(scannerSelection)) {
                             case 0: // Quit program
