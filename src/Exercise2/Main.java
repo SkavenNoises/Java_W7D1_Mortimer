@@ -49,8 +49,8 @@ public class Main {
                                 break;
 
                             case 1: // Student Details
-                                String sql_getStudentInfo = "SELECT * FROM university.students";
-                                ResultSet resultSet = statement.executeQuery(sql_getStudentInfo);
+                                final String sql_getStudentInfo = "SELECT * FROM university.students";
+                                ResultSet studentResultSet = statement.executeQuery(sql_getStudentInfo);
 
                                 // Creating the output list header
                                 String studentListHeader = String.format("%3s %20s %20s", "ID", "Name", "Address");
@@ -59,10 +59,10 @@ public class Main {
                                 System.out.println(studentListHeader);
                                 System.out.println("-".repeat(studentListHeader.length()));
 
-                                while (resultSet.next()) {
-                                    int studentID = resultSet.getInt("id");
-                                    String studentName = resultSet.getString("name");
-                                    String studentAddress = resultSet.getString("address");
+                                while (studentResultSet.next()) {
+                                    int studentID = studentResultSet.getInt("id");
+                                    String studentName = studentResultSet.getString("name");
+                                    String studentAddress = studentResultSet.getString("address");
 
                                     System.out.println(String.format("%3s %20s %20s", studentID, studentName, studentAddress));
                                 }
@@ -70,9 +70,24 @@ public class Main {
                                 break;
 
                             case 2: // Course Details
+                                final String sql_getCourseInfo = "SELECT * FROM university.courses";
+                                ResultSet coursesResultSet = statement.executeQuery(sql_getCourseInfo);
+
+                                // Creating the output list header
+                                String coursesListHeader = String.format("%3s %20s", "ID", "Course");
+                                System.out.println("-".repeat(coursesListHeader.length()));
+                                System.out.println(coursesListHeader);
+                                System.out.println("-".repeat(coursesListHeader.length()));
+
+                                while (coursesResultSet.next()) {
+                                    int courseID = coursesResultSet.getInt("id");
+                                    String courseName = coursesResultSet.getString("name");
+
+
+                                    System.out.println(String.format("%3s %20s", courseID, courseName));
+                                }
 
                                 break;
-
                         }
 
                     } else {
